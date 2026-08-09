@@ -1,26 +1,10 @@
-# ORT.respo – Target-Layer
-
-ORT = /ORT/
-
-# Kompatibilität
-ROOT.compat  = TMP
-ACHSE.compat = TMP
-TMP.compat   = TMP
-LAGE.compat  = TMP
-laTER.compat = TMP
-ORT.compat   = TMP
-
-# Frequenz
-FREQ = FREQ.12
-
-# 6D
-D0 = ROOT
-D1 = ACHSE
-D2 = TMP
-D3 = LAGE
-D4 = laTER
-D5 = ORT
-
-# 360°
-SEQ = SEQ.360
-
+export function ORT_RESPO(ort){
+    return {
+        antwort: `ORTE‑Antwort für ${ort.frame}`,
+        drift: ort.drift || "D5‑Drift",
+        stabil: ort.stabil || "12e‑Stabil",
+        lage: ort.lage || "6D‑Lage",
+        tmp: ort.tmp || "TMP‑Konstellation",
+        frame: "ORTE‑RESPO"
+    };
+}
